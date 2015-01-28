@@ -82,6 +82,7 @@ class Server(BaseModel):
         # create logpath: goes in dbpath by default under process name + ".log"
         logpath = cfg.setdefault(
             'logpath', os.path.join(cfg['dbpath'], 'mongod.log'))
+        cfg['logappend'] = True
         self.__init_logpath(logpath)
 
         # find open port

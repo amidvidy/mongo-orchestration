@@ -242,9 +242,10 @@ def cleanup_mprocess(config_path, cfg):
        config_path - process's options file
        cfg - process's config
     """
-    for key in ('keyFile', 'logPath', 'dbpath'):
-        remove_path(cfg.get(key, None))
-    isinstance(config_path, str) and os.path.exists(config_path) and remove_path(config_path)
+    pass
+    #for key in ('keyFile', 'logPath', 'dbpath'):
+        #remove_path(cfg.get(key, None))
+    #isinstance(config_path, str) and os.path.exists(config_path) and remove_path(config_path)
 
 
 def remove_path(path):

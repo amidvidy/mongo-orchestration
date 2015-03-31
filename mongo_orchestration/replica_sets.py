@@ -166,6 +166,7 @@ class ReplicaSet(BaseModel):
             self.cleanup()
             return False
         try:
+            logger.debug(config)
             result = self.connection(init_server).admin.command("replSetInitiate", config)
             logger.debug("replica init result: {result}".format(**locals()))
         except pymongo.errors.PyMongoError:

@@ -166,7 +166,7 @@ class ReplicaSet(BaseModel):
             self.cleanup()
             return False
         try:
-            logger.debug(config)
+            logger.debug(config)`
             result = self.connection(init_server).admin.command("replSetInitiate", config)
             logger.debug("replica init result: {result}".format(**locals()))
         except pymongo.errors.PyMongoError:
@@ -435,7 +435,7 @@ class ReplicaSet(BaseModel):
                 else:
                     logger.debug("connection to the {servers}".format(**locals()))
                     c = pymongo.MongoClient(
-                        servers, socketTimeoutMS=2000,
+                        servers, socketTimeoutMS=200000,
                         w='majority', fsync=True, **self.kwargs)
                     connected(c)
                     self._authenticate_client(c)
